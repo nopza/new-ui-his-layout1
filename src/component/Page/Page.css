@@ -1,0 +1,11 @@
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.modal-lg {
+    max-width: 64% !important;
+}

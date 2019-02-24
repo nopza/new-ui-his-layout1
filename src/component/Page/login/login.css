@@ -1,0 +1,44 @@
+body { 
+	background: url('/src/pic/Citi-Background-Gradient.jpg') no-repeat center center fixed; 
+	width: 1350;
+	height: 946;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+  background-size: cover;
+  }  
+
+* {
+  box-sizing: border-box;
+  font-size: 15px;
+}
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  margin-top: 20px;
+}
+
+.cardlogin {
+  background-color: white;
+  margin-top: 260px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.login {
+
+	min-height: 100vh;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: auto;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+  }
+
+.box {
+  padding: 20px;
+  background: #f5d6d6;
+}
