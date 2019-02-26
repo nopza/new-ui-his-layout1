@@ -10,12 +10,6 @@ class Ginformation extends Component {
         super(props);
     
         this.state = {
-          TITLEUIDTH:'',
-          FornameTH: '',
-          LastnameTH:'',
-          TITLEUIDEN:'',
-          FornameEN: '',
-          LastnameEN:'',
           
             columnDefs: [
                 {headerName: "ประเภทบัตร", field: "tcard", width: 310, suppressSizeToFit: true},
@@ -31,48 +25,27 @@ class Ginformation extends Component {
                 {tcard: "Hack!", idcard: "7777", sdate: "12/12/2561", edate: "12/12/2662"}
             ]
         }
-        this.handleChangeTITLEUIDTH = this.handleChangeTITLEUIDTH.bind(this);
-        this.handleChangeFornameTH = this.handleChangeFornameTH.bind(this);
-        this.handleChangeLastnameTH = this.handleChangeLastnameTH.bind(this);
-        this.handleChangeTITLEUIDEN = this.handleChangeTITLEUIDEN.bind(this);
-        this.handleChangeFornameEN = this.handleChangeFornameEN.bind(this);
-        this.handleChangeLastnameEN = this.handleChangeLastnameEN.bind(this);
-    }
-    
-    handleChangeTITLEUIDTH = (e,TITLEUIDTH) => {
-      this.setState({ TITLEUIDTH });
-      localStorage.setItem("นาย", TITLEUIDTH);
-      console.log("มาแล้ว :" , TITLEUIDTH)
+
+        this.handleChangeTitle = this.handleChangeTitle.bind(this);
+        this.handleChangeForname = this.handleChangeForname.bind(this);
+        this.handleChangeLastname = this.handleChangeLastname.bind(this);
     }
 
-    handleChangeFornameTH = (e,FornameTH) => {
-      localStorage.setItem("nop", FornameTH);
-      this.setState({ FornameTH });
-      console.log("มาแล้ว :" , FornameTH)
-    }
-    handleChangeLastnameTH = (e,LastnameTH) => {
-      this.setState({ LastnameTH });
-      localStorage.setItem("za", LastnameTH);
-      console.log("มาแล้ว :" , LastnameTH)
+    handleChangeTitle = (e,TITLEUID) => {
+      this.setState({ TITLEUID });
+      localStorage.setItem("TITLEUID", TITLEUID);
     }
 
-    handleChangeTITLEUIDEN = (e,TITLEUIDEN) => {
-      localStorage.setItem("Mr.", TITLEUIDEN);
-      this.setState({ TITLEUIDEN });
-      console.log("มาแล้ว :" , TITLEUIDEN)
+    handleChangeForname = (e,Forname) => {
+      localStorage.setItem("Forname", Forname);
+      this.setState({ Forname });
     }
 
-    handleChangeFornameEN = (e,FornameEN) => {
-      this.setState({ FornameEN });
-      localStorage.setItem("nop", FornameEN);
-      console.log("มาแล้ว :" , FornameEN)
+    handleChangeLastname = (e,Lastname) => {
+      localStorage.setItem("Lastname", Lastname);
+      this.setState({ Lastname });
     }
 
-    handleChangeLastnameEN = (e,LastnameEN) => {
-      localStorage.setItem("za", LastnameEN);
-      this.setState({ LastnameEN });
-      console.log("มาแล้ว :" , LastnameEN)
-    }
 
 
 
@@ -100,7 +73,7 @@ class Ginformation extends Component {
           <div className="card-body">
             <div className="form-row ">
               <div className=" form-group col-md-2">
-                <AvField name="title" label="คำนำหน้า" type="select" errorMessage="กรุณาเลือกคำนำหน้า" onChange={this.handleChangeTitleTH} value={this.state.TITLEUIDTH} validate={{
+                <AvField name="title" label="คำนำหน้า" type="select" errorMessage="กรุณาเลือกคำนำหน้า" onChange={this.handleChangeTitle} value={this.state.TITLEUID} validate={{
                   required: {value: true} 
                 }}><option value=""></option>
                 <option value="1">นาย</option>
@@ -109,12 +82,12 @@ class Ginformation extends Component {
                 </AvField>
               </div>
               <div className="form-group col-md-3">
-                <AvField name="name" label="ชื่อ" type="text" errorMessage="กรุณากรอกชื่อ" onChange={this.handleChangeFornameTH} value={this.state.FornameTH} validate={{
+                <AvField name="name" label="ชื่อ" type="text" errorMessage="กรุณากรอกชื่อ" onChange={this.handleChangeForname} value={this.state.Forname} validate={{
                 required: {value: true}
               }} />
               </div>
               <div className="form-group col-md-3">
-              <AvField name="lastname" label="นามสกุล" type="text" errorMessage="กรุณากรอกนามสกุล" onChange={this.handleChangeLastnameTH} value={this.state.LastnameTH} validate={{
+              <AvField name="lastname" label="นามสกุล" type="text" errorMessage="กรุณากรอกนามสกุล" onChange={this.handleChangeLastname} value={this.state.Lastname} validate={{
                 required: {value: true}
               }} /> 
               </div>
@@ -134,7 +107,7 @@ class Ginformation extends Component {
           <div className="card-body">
             <div className="form-row ">
               <div className=" form-group col-md-2">
-                <AvField name="titleE" label="Title" type="select" errorMessage="กรุณาเลือกคำนำหน้า" onChange={this.handleChangeTitleEN} value={this.state.TITLEUIDEN} validate={{
+                <AvField name="titleE" label="Title" type="select" errorMessage="กรุณาเลือกคำนำหน้า" validate={{
                   required: {value: true}
                 }}>
                 <option></option>
@@ -144,12 +117,12 @@ class Ginformation extends Component {
                 </AvField>
               </div>
               <div className="form-group col-md-3">
-                <AvField name="nameE" label="Name" type="text" errorMessage="กรุณากรอกชื่อ" onChange={this.handleChangeFornameEN} value={this.state.FornameEN} validate={{
+                <AvField name="nameE" label="Name" type="text" errorMessage="กรุณากรอกชื่อ" validate={{
                 required: {value: true}
               }} />
               </div>
                 <div className="form-group col-md-3">
-                <AvField name="lastnameE" label="Lastname" type="text" errorMessage="กรุณากรอกนามสกุล" onChange={this.handleChangeLastnameEN} value={this.state.LastnameEN} validate={{
+                <AvField name="lastnameE" label="Lastname" type="text" errorMessage="กรุณากรอกนามสกุล" validate={{
                 required: {value: true}
               }} />
               </div>

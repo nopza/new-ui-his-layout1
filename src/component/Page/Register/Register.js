@@ -30,60 +30,42 @@ class Register extends Component {
     super(props);
 
     this.state = {
-        count: null,
-        TITLEUIDTH : null,
-        FornameTH : "",
-        SurnameTH : "",
-        TITLEUIDEN : null,
-        ForenameEN : "",
-        SurnameEN : ""
-      
+      count: null,
+      TITLEUIDTH: null,
+      FornameTH: "",
+      SurnameTH: "",
+      TITLEUIDEN: null,
+      ForenameEN: "",
+      SurnameEN: ""
+
     }
     this.handlesubmit = this.handlesubmit.bind(this)
-}
+  }
 
-  async handlesubmit (e) {
-    
-    this.state.TITLEUID = localStorage.getItem("นาย");
-    this.state.FornameTH = localStorage.getItem("nop");
-    this.state.SurnameTH = localStorage.getItem("za");
-    this.state.TITLEUIDEN = localStorage.getItem("Mr.");
-    this.state.ForenameEN = localStorage.getItem("nop");
-    this.state.SurnameEN = localStorage.getItem("za");
+  async handlesubmit(e) {
 
-    await axios.post('http://localhost:3000/patient', {
+    this.state.TITLEUID = localStorage.getItem("TITLEUID");
+    this.state.Forname = localStorage.getItem("Forname");
+    this.state.Lastname = localStorage.getItem("Lastname");
+
+    await axios.post('http://localhost:3001/patient', {
       id: this.state.count,
-      TITLEUIDTH: localStorage.getItem("นาย"),
-      FornameTH: localStorage.getItem("nop"),
-      SurnameTH: localStorage.getItem("za"),
-      TITLEUIDEN : localStorage.getItem("Mr."),
-      ForenameEN : localStorage.getItem("nop"),
-      SurnameEN : localStorage.getItem("za"),
+      TITLEUID: localStorage.getItem("TITLEUID"),
+      Forname: localStorage.getItem("Forname"),
+      Lastname: localStorage.getItem("Lastname")
     })
-    .then( response => {
-      console.log(response.data);
-      swal({
-        title: "Good job!",
-        text: " Saveing...!",
-        icon: "success",
-        button: "OK",
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
       });
-    })
-    .catch( error => {
-      console.log(error);
-      swal({
-        title: "Sorry!",
-        text: "Invalid Data",
-        icon: "error",
-        button: "OK",
-      });;
-    });
-    
-    this.state.count ++;
+
+    this.state.count++;
     localStorage.clear();
     console.log(this.state);
     e.preventDefault();
-    }
+  }
 
   render() {
     return (
@@ -93,57 +75,57 @@ class Register extends Component {
           <Navheader />
 
           <AvForm>
-          
-          <div className="card">
-            <div className="card-body">
-              
-              <div className="form-row">
-                <div className=" form-group col-md-">
-                  <label><br/><br/></label>
-                  <h3>Hospital Number</h3>
-                </div>
-                <div className=" form-group col-md-3">
-                  <label><br/><br/></label>
-                  <fieldset disabled>
-                    <input type='text' className="form-control" placeholder="00000000"  />
-                  </fieldset>
-                </div>
-                <div className=" form-group col-md-3">
+
+            <div className="card">
+              <div className="card-body">
+
+                <div className="form-row">
+                  <div className=" form-group col-md-">
+                    <label><br /><br /></label>
+                    <h3>Hospital Number</h3>
+                  </div>
+                  <div className=" form-group col-md-3">
+                    <label><br /><br /></label>
+                    <fieldset disabled>
+                      <input type='text' className="form-control" placeholder="00000000" />
+                    </fieldset>
+                  </div>
+                  <div className=" form-group col-md-3">
+
+                  </div>
+                  <div className=" form-group col text-right">
+                    <div className="imgPreview picimg">
+                      {/* <img src={PicP} /> */}
+                    </div>
+                  </div>
 
                 </div>
-                <div className=" form-group col text-right">
-                  <div className= "imgPreview picimg">
-                    {/* <img src={PicP} /> */}
-                  </div>
-                </div>
-                
               </div>
+
             </div>
 
-          </div>
+            <div data-spy="scroll" data-target="#test" data-offset="0">
+              <div id="item-1">
+                <Ginformation />
+              </div>
 
-          <div data-spy="scroll" data-target="#test" data-offset="0">
-          <div id="item-1">
-            <Ginformation />
-          </div>
+              <div id="item-2">
+                <Ainformation />
+              </div>
 
-          <div id="item-2">
-            <Ainformation />
-          </div>
+              <div id="item-3">
+                <Pinformation />
+              </div>
 
-          <div id="item-3">
-            <Pinformation />
-          </div>
+              <div id="item-4">
+                <Cinformation />
+              </div>
 
-          <div id="item-4">
-            <Cinformation />
-          </div>
-          
-          <div id="item-5">
-            <Binformation />
-          </div>
+              <div id="item-5">
+                <Binformation />
+              </div>
 
-          </div>
+            </div>
 
             <div className="form-row">
               <div className="form-group col-md-9">
@@ -151,12 +133,12 @@ class Register extends Component {
               </div>
               <div className="form-group col-md-3">
                 <button type="button" className="btn btn-danger ">ลบรายการ</button>&nbsp;&nbsp;&nbsp;
-                <button type="submit" className="btn btn-primary " type="submit" onClick={this.handlesubmit}>บันทึก</button>&nbsp;&nbsp;&nbsp;     
-                <button type="button" className="btn btn-second ">ยกเลิก</button>   
+                <button type="submit" className="btn btn-primary " type="submit" onClick={this.handlesubmit}>บันทึก</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" className="btn btn-second ">ยกเลิก</button>
               </div>
             </div>
           </AvForm>
-          <ScrollUpButton 
+          <ScrollUpButton
             StopPosition={0}
             ShowAtPosition={150}
             EasingType='easeOutCubic'
@@ -165,7 +147,7 @@ class Register extends Component {
             TransitionClassName='ScrollUpButton__Toggled'
             style={{}}
             ToggledStyle={{}} />
-            {/* <ScrollToTop showUnder={160}>
+          {/* <ScrollToTop showUnder={160}>
             <span>UP</span>
             </ScrollToTop> */}
           <Footer />
@@ -182,7 +164,7 @@ class Register extends Component {
           </nav>
         </div>
 
-        
+
       </div>
     );
   }
