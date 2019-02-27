@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
-import { Container, Row, Col,Button,Card,CardBody,FormGroup,CardGroup,Label,CustomInput} from 'reactstrap';
+import { Container, Row, Col, Button, Card, CardBody, FormGroup, CardGroup, Label, CustomInput } from 'reactstrap';
 import '../login/login.css';
 
 const noclinicoption = [
@@ -48,18 +48,18 @@ class location extends Component {
     super(props);
     this.state = {
       Local: 'Clinical',
-      clinic:"",
-      noclinic:"",
+      clinic: "",
+      noclinic: "",
     };
 
-//     this.handleChange3 = this.handleChange3.bind(this);
-//     this.handleClick = this.handleClick.bind(this);
-//   }
-//   handleChange3(event) {
-//     this.setState({ location: event.target.value });
-//   }
+    //     this.handleChange3 = this.handleChange3.bind(this);
+    //     this.handleClick = this.handleClick.bind(this);
+    //   }
+    //   handleChange3(event) {
+    //     this.setState({ location: event.target.value });
+    //   }
 
-//   async handleClick(event) {
+    //   async handleClick(event) {
   }
   handleChangeclinic = (clinic) => {
     this.setState({ clinic });
@@ -72,73 +72,73 @@ class location extends Component {
 
   getlocallist() {
     if (this.state.Local === 'Clinical') {
-        return (
-            <div>
-                <Row form>
-                        <Label>Department</Label>
-                        &nbsp;
+      return (
+        <div>
+          <Row form>
+            <Label>Department</Label>
+            &nbsp;
                         <Col md={12}>
-                            <FormGroup>
-                                <Select
-                                    value={this.state.clinic}
-                                    onChange={this.handleChangeclinic}
-                                    options={clinicoption}
-                                />
-                            </FormGroup>
-                        </Col>
-                        &nbsp;
+              <FormGroup>
+                <Select
+                  value={this.state.clinic}
+                  onChange={this.handleChangeclinic}
+                  options={clinicoption}
+                />
+              </FormGroup>
+            </Col>
+            &nbsp;
                     </Row>
-            </div>
-        );
+        </div>
+      );
     } else {
-        return (
-            <div>
-                <Row form>
-                        <Label>Department</Label>
-                        &nbsp;
+      return (
+        <div>
+          <Row form>
+            <Label>Department</Label>
+            &nbsp;
                         <Col md={12}>
-                            <FormGroup>
-                                <Select
-                                    value={this.state.noclinic}
-                                    onChange={this.handleChangenoclinic}
-                                    options={noclinicoption}
-                                />
-                            </FormGroup>
-                        </Col>
-                        &nbsp;
+              <FormGroup>
+                <Select
+                  value={this.state.noclinic}
+                  onChange={this.handleChangenoclinic}
+                  options={noclinicoption}
+                />
+              </FormGroup>
+            </Col>
+            &nbsp;
                     </Row>
-            </div>
-        );
-      }
+        </div>
+      );
+    }
   }
 
   render() {
     return (
-      <div className = "container-fluid">
-        <br/>
+      <div className="container-fluid">
+        <br />
         <Row>
           <Col sm={{ size: 4, order: 2, offset: 4 }}>
-          <Container className="login">
-            <CardGroup>
-                <Card className = "cardlogin">
+            <Container>
+              <CardGroup>
+                <Card>
                   <CardBody>
-                  <h2 className = "text-center"> Location </h2>
-                  <hr/>
-                  <Label ><b>User Group</b></Label>
-                  <div>
-                    <CustomInput type='radio' id='Clinical' name='getlocal' value='Clinical' label='Clinical'
-                      checked={this.state.Local === 'Clinical'}
-                      onChange={(e) => this.setState({ Local: e.target.value })} />
-                    <CustomInput type='radio' id='NoneClinical' name='getlocal' value='NoneClinical' label='None Clinical'
-                      checked={this.state.Local === 'NoneClinical'}
-                      onChange={(e) => this.setState({ Local: e.target.value })} />
+                    <h2 className="text-center"> Location </h2>
+                    <hr />
+                    <Label ><b>User Group</b></Label>
+                    <div>
+                      <CustomInput type='radio' id='Clinical' name='getlocal' value='Clinical' label='Clinical'
+                        checked={this.state.Local === 'Clinical'}
+                        onChange={(e) => this.setState({ Local: e.target.value })} />
+                      <CustomInput type='radio' id='NoneClinical' name='getlocal' value='NoneClinical' label='None Clinical'
+                        checked={this.state.Local === 'NoneClinical'}
+                        onChange={(e) => this.setState({ Local: e.target.value })} />
                       &nbsp;
                       {this.getlocallist()}
-                  </div>
-                  <FormGroup body className = "text-center">
-                    <Button color="primary" href = "/home">  OK  </Button>
-                  </FormGroup>
-                    
+                    </div>
+                    <FormGroup body className="text-center">
+                      <Button color="primary" href="/home">  OK  </Button>
+                    </FormGroup>
+
                   </CardBody>
                 </Card>
               </CardGroup>

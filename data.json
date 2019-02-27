@@ -2,20 +2,14 @@
   "users": [
     {
       "id": 1,
-      "first_name": "Robert",
-      "last_name": "Schwartz",
-      "email": "rob23@gmail.com",
+      "username": "test",
       "password": "1234"
     },
     {
       "id": 2,
-      "first_name": "Lucy",
-      "last_name": "Ballmer",
-      "email": "lucyb56@gmail.com",
-      "password": "1234"
+      "username": "Nopza",
+      "password": "0000"
     }
   ],
-  "patient": [
-
-  ]
+  "patient": []
 }

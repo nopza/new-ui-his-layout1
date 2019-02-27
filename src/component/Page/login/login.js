@@ -12,11 +12,14 @@ class login extends Component {
     this.state = {
       username: "",
       password: "",
+      test: []
     };
 
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
+
   }
 
   handleChange1(event) {
@@ -27,44 +30,53 @@ class login extends Component {
     this.setState({ password: event.target.value });
 
   }
+
+  componentDidMount() {
+    axios.get('http://localhost:3001/users')
+      .then(res => {
+        this.state.test = res.data;
+        this.setState( this.state.test );
+        console.log(this.state.test.length);
+      })
+  }
+
+
   async handleClick(event) {
-    if (this.state.username === "chiao" && this.state.password === "test1234") {
-      await swal({
-        title: "Good job!",
-        text: this.state.username + " is signed in...!",
-        icon: "success",
-        button: "OK",
-      });
-      window.location.assign("location");
-    }
-    else {
-      swal({
-        title: "Sorry!",
-        text: "please sign in...!",
-        icon: "error",
-        button: "OK",
-      });;
+    var i = 0;
+    var u = this.state.test;
+    for (i = 0; i < u.length; i++) {
+      if (this.state.username == u[i].username && this.state.password == u[i].password) {
+        await swal({
+          title: "Good job!",
+          text: this.state.username + " is signed in...!",
+          icon: "success",
+          button: "OK",
+        });
+        window.location.assign("location");
+        break;
+      }
+      else {
+        swal({
+          title: "Sorry!",
+          text: "please sign in...!",
+          icon: "error",
+          button: "OK",
+        });;
+      }
     }
   }
 
-  // handleSubmit2 (event) {
-  //   axios.post('http://localhost:3001/users', {
-  //       id: this.state.username,
-  //       password: this.state.password,
-  //   }).then(resp => {
-  //     if (this.state.username === "chiao" && this.state.password === "test1234"){
-  //       window.location.assign("location");
-  //     }
-  //   }).catch(error => {
-  //       console.log(error);
-  //   });  
-  // }
 
-  
   render() {
     return (
       <div className="container-fluid">
         <br />
+        <div>
+          <ul>
+            {this.state.test.map(users => <li>{users.username}</li>)}
+            {this.state.test.map(users => <li>{users.password}</li>)}
+          </ul>
+        </div>
 
         <Container>
           <Row>
@@ -93,7 +105,7 @@ class login extends Component {
                           maxLength: { value: 16, errorMessage: 'Your password must be between 3 and 16 characters' }
                         }} grid={{ xs: 9 }} />
                       <FormGroup body className="text-center">
-                        <Button color="primary" onClick={this.handleClick.bind(this)}> SIGN  IN </Button>
+                        <Button color="primary" onClick={this.handleClick} > SIGN  IN </Button>
                       </FormGroup>
                     </AvForm>
 
