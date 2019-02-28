@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import '../Page/Page.css'
-import '../css/style4.css';
-import Navheader from '../Header/Navheader';
+import Header from '../../Header/Header';
+import '../../Page/Page.css'
+import '../../css/style4.css';
+import Navheader from '../../Header/Navheader';
 import PanelGroup from 'react-panelgroup';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import Footer from '../../Footer/Footer';
 
 
 const columns = [{
@@ -78,7 +78,7 @@ const rows3 = [{ id: 1, piority: 'eiei', date: '102', name: 'TEst' },
 { id: 2, piority: 'Chiao eiei', date: '000', name: 'TEst' },
 { id: 3, piority: 'Mystoryme', date: '555', name: 'TEst' }];
 
-class Dispensing extends Component {
+class ExamDoctor extends Component {
   render() {
     return (
       <div class="wrapper">
@@ -90,9 +90,9 @@ class Dispensing extends Component {
           </div>
             <div className="card2">
               <PanelGroup borderColor="grey" panelWidths={[
-                { size: 600, minSize: 500, resize: "dynamic" },
-                { minSize:500, resize: "streach" },
-                { size: 600, minSize: 500, resize: "dynamic" }
+                { size: 400, minSize: 300, resize: "dynamic" },
+                { minSize:200, resize: "streach" },
+                { size: 400, minSize: 100, resize: "dynamic" }
               ]}>
                 <div>
                   <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -225,4 +225,4 @@ class Dispensing extends Component {
   }
 }
 
-export default Dispensing;
+export default ExamDoctor;
