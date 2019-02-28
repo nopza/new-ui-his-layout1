@@ -44,15 +44,15 @@ class Register extends Component {
 
   async handlesubmit(e) {
 
-    this.state.TITLEUID = localStorage.getItem("TITLEUID");
-    this.state.Forname = localStorage.getItem("Forname");
-    this.state.Lastname = localStorage.getItem("Lastname");
+    this.state.TITLEUIDTH = localStorage.getItem("TITLEUIDTH");
+    this.state.FornameTH = localStorage.getItem("FornameTH");
+    this.state.LastnameTH = localStorage.getItem("LastnameTH");
 
     await axios.post('http://localhost:3001/patient', {
       id: this.state.count,
-      TITLEUID: localStorage.getItem("TITLEUID"),
-      Forname: localStorage.getItem("Forname"),
-      Lastname: localStorage.getItem("Lastname")
+      TITLEUIDTH: localStorage.getItem("TITLEUIDTH"),
+      FornameTH: localStorage.getItem("FornameTH"),
+      LastnameTH: localStorage.getItem("LastnameTH")
     })
       .then(response => {
         console.log(response.data);

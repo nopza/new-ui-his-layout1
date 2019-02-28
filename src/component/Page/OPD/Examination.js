@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import '../Page/Page.scss'
-import '../css/style4.css';
-import Navheader from '../Header/Navheader';
+import Header from '../../Header/Header';
+import '../../Page/Page.scss'
+import '../../css/style4.css';
+import Navheader from '../../Header/Navheader';
 import PanelGroup from 'react-panelgroup';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import Footer from '../../Footer/Footer';
 
 
 const columns1 = [{
@@ -140,7 +140,7 @@ class Examination extends Component {
           <div className="card2">
             <PanelGroup borderColor="grey" panelWidths={[
               { size: 400, minSize: 100, resize: "dynamic" },
-              { minSize: 500, resize: "streach" },
+              { minSize: 200, resize: "streach" },
               { size: 400, minSize: 100, resize: "dynamic" }
             ]}>
               <div>

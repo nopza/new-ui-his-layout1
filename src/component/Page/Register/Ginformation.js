@@ -31,19 +31,19 @@ class Ginformation extends Component {
         this.handleChangeLastname = this.handleChangeLastname.bind(this);
     }
 
-    handleChangeTitle = (e,TITLEUID) => {
-      this.setState({ TITLEUID });
-      localStorage.setItem("TITLEUID", TITLEUID);
+    handleChangeTitle = (e,TITLEUIDTH) => {
+      this.setState({ TITLEUIDTH });
+      localStorage.setItem("TITLEUIDTH", TITLEUIDTH);
     }
 
-    handleChangeForname = (e,Forname) => {
-      localStorage.setItem("Forname", Forname);
-      this.setState({ Forname });
+    handleChangeForname = (e,FornameTH) => {
+      localStorage.setItem("FornameTH", FornameTH);
+      this.setState({ FornameTH });
     }
 
-    handleChangeLastname = (e,Lastname) => {
-      localStorage.setItem("Lastname", Lastname);
-      this.setState({ Lastname });
+    handleChangeLastname = (e,LastnameTH) => {
+      localStorage.setItem("LastnameTH", LastnameTH);
+      this.setState({ LastnameTH });
     }
 
 
@@ -73,7 +73,7 @@ class Ginformation extends Component {
           <div className="card-body">
             <div className="form-row ">
               <div className=" form-group col-md-2">
-                <AvField name="title" label="คำนำหน้า" type="select" errorMessage="กรุณาเลือกคำนำหน้า" onChange={this.handleChangeTitle} value={this.state.TITLEUID} validate={{
+                <AvField name="title" label="คำนำหน้า" type="select" errorMessage="กรุณาเลือกคำนำหน้า" onChange={this.handleChangeTitle} value={this.state.TITLEUIDTH} validate={{
                   required: {value: true} 
                 }}><option value=""></option>
                 <option value="1">นาย</option>
@@ -82,12 +82,12 @@ class Ginformation extends Component {
                 </AvField>
               </div>
               <div className="form-group col-md-3">
-                <AvField name="name" label="ชื่อ" type="text" errorMessage="กรุณากรอกชื่อ" onChange={this.handleChangeForname} value={this.state.Forname} validate={{
+                <AvField name="name" label="ชื่อ" type="text" errorMessage="กรุณากรอกชื่อ" onChange={this.handleChangeForname} value={this.state.FornameTH} validate={{
                 required: {value: true}
               }} />
               </div>
               <div className="form-group col-md-3">
-              <AvField name="lastname" label="นามสกุล" type="text" errorMessage="กรุณากรอกนามสกุล" onChange={this.handleChangeLastname} value={this.state.Lastname} validate={{
+              <AvField name="lastname" label="นามสกุล" type="text" errorMessage="กรุณากรอกนามสกุล" onChange={this.handleChangeLastname} value={this.state.LastnameTH} validate={{
                 required: {value: true}
               }} /> 
               </div>
